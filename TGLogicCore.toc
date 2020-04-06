@@ -1,0 +1,6 @@
+## Interface: 80300
+## Title: Terran Gamer: |cffa335eeLogicCore|r v|cffe6cc881.0.0|r
+## Author: LogicallyUnfit
+## Version: 1.0.0
+
+TGLogicCore.lua
