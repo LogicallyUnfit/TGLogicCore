@@ -1,3 +1,37 @@
+----------------------------------------------------------------------
+-- Logic Core Addon Tools.
+--
+-- v1.1.0
+-- Created by LogicallyUnfit 2020
+----------------------------------------------------------------------
+-- v1.1.0
+----------------------------------------------------------------------
+-- +checkclub() returns nil or clubid
+----------------------------------------------------------------------
+-- v1.0.0
+----------------------------------------------------------------------
+-- First Version
+-- 
+--
+----------------------------------------------------------------------
+
+function checkclub()
+    clubid = nil
+    guilds = {"Terran Empire","Terran Gamer"}
+    clubs = C_Club.GetSubscribedClubs()
+
+    for guildcount, curguild in ipairs(guilds) do
+        for cloop=1, table.getn(clubs) do
+            if clubs[cloop]["name"] == curguild then
+                clubid = clubs[cloop]["clubId"]
+            end
+        end
+    end
+
+
+    return clubid
+end
+
 function dump(rawdata)
     if type(rawdata) == 'table' then
        local stringd = '{ '
