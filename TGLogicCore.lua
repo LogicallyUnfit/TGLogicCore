@@ -16,6 +16,8 @@
 ----------------------------------------------------------------------
 
 function checkclub()
+    -- ToDo: 
+    --  Add Server Checker too
     clubid = nil
     guilds = {"Terran Empire","Terran Gamer"}
     clubs = C_Club.GetSubscribedClubs()
@@ -70,6 +72,20 @@ function print_r(output,prefix,error)
         print("|cffa335ee"..prefix..":|r "..data)
     end
     return true
+end
+
+----------------------------------------------------------------------
+-- isTerranOfficer - 1.2.0
+----------------------------------------------------------------------
+-- Use: Check if User is a Terran Officer
+----------------------------------------------------------------------
+function isTerranOfficer()
+    if checkclub() ~= nil then
+        if C_GuildInfo.IsGuildOfficer() == true then
+            return true
+        end
+    end
+    return false
 end
 
 SLASH_LOGICCORE = "/lc"
