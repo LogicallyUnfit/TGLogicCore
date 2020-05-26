@@ -1,8 +1,12 @@
 ----------------------------------------------------------------------
 -- Logic Core Addon Tools.
 --
--- v1.1.0
+-- v1.2.0
 -- Created by LogicallyUnfit 2020
+----------------------------------------------------------------------
+-- v1.2.0
+----------------------------------------------------------------------
+-- +explode(seperator, str) Splits 'str' by 'seperator'
 ----------------------------------------------------------------------
 -- v1.1.0
 ----------------------------------------------------------------------
@@ -15,6 +19,35 @@
 --
 ----------------------------------------------------------------------
 
+
+----------------------------------------------------------------------
+-- Function: explode()
+--    Input: seperator - char to split str with. 
+--                 str - string to be split
+--    Usage: Splits str by seperator, php style
+--   Source: Lance Li - http://lua-users.org/wiki/SplitJoin
+----------------------------------------------------------------------
+function explode(seperator, str)
+    local t, ll
+    t={}
+    ll=0
+    if(#str == 1) then
+        return {str}
+    end
+    while true do
+        l = string.find(str, seperator, ll, true) -- find the next d in the string
+        if l ~= nil then -- if "not not" found then..
+            table.insert(t, string.sub(str,ll,l-1)) -- Save it in our array.
+            ll = l + 1 -- save just after where we found it for searching next time.
+        else
+            table.insert(t, string.sub(str,ll)) -- Save what's left in our array.
+            break -- Break at end, as it should be, according to the lua manual.
+        end
+    end
+    return t
+end
+
+----------------------------------------------------------------------
 function checkclub()
     -- ToDo: 
     --  Add Server Checker too
