@@ -48,9 +48,14 @@ function explode(seperator, str)
 end
 
 ----------------------------------------------------------------------
+function GetTerranClubId()
+    return C_Club.GetGuildClubId()
+end
+
 function checkclub()
     -- ToDo: 
-    --  Add Server Checker too
+    -- No Need to loop now, Wow Has a function.
+    --[[
     clubid = nil
     guilds = {"Terran Empire","Terran Gamer"}
     clubs = C_Club.GetSubscribedClubs()
@@ -62,7 +67,9 @@ function checkclub()
             end
         end
     end
+    --]]
 
+    clubid = C_Club.GetGuildClubId()
 
     return clubid
 end
