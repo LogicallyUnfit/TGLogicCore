@@ -26,6 +26,7 @@
 --                 str - string to be split
 --    Usage: Splits str by seperator, php style
 --   Source: Lance Li - http://lua-users.org/wiki/SplitJoin
+--  v Added: 1.2.0
 ----------------------------------------------------------------------
 function explode(seperator, str)
     local t, ll
@@ -48,30 +49,19 @@ function explode(seperator, str)
 end
 
 ----------------------------------------------------------------------
+-- Function: GetTerranClubId()
+--    Input: seperator - char to split str with. 
+--                 str - string to be split
+--    Usage: Splits str by seperator, php style
+--   Source: Lance Li - http://lua-users.org/wiki/SplitJoin
+--  v Added: 1.2.0
+----------------------------------------------------------------------
 function GetTerranClubId()
     return C_Club.GetGuildClubId()
 end
 
 function checkclub()
-    -- ToDo: 
-    -- No Need to loop now, Wow Has a function.
-    --[[
-    clubid = nil
-    guilds = {"Terran Empire","Terran Gamer"}
-    clubs = C_Club.GetSubscribedClubs()
-
-    for guildcount, curguild in ipairs(guilds) do
-        for cloop=1, table.getn(clubs) do
-            if clubs[cloop]["name"] == curguild then
-                clubid = clubs[cloop]["clubId"]
-            end
-        end
-    end
-    --]]
-
-    clubid = C_Club.GetGuildClubId()
-
-    return clubid
+    return C_Club.GetGuildClubId()
 end
 
 function dump(rawdata)
